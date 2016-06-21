@@ -1,9 +1,8 @@
 $(document).ready(function() {
-
     // PLAYER 1: X
-    // any time player one click on the div it will add a class call 'x'
+    // any time player one click on the div it will add a class call player1
     //check if player 1 can move there
-    //check if there is any x or o class.
+    //check if there is any player1 or player2 class.
     //if there is any class ==> you cannot move there else id
     //$( "div where you click" ).addClass( "x" );
     // write a function to know when to use player 1 or player 2 to the event
@@ -18,7 +17,7 @@ $(document).ready(function() {
             playerTurn = "player1"; //player1 goes
 
         } else {
-            console.log(playerTurn = 'game over');
+            console.log('both of you have no idea how to play');
         }
     };
     //=========checking if we can click on that box
@@ -30,72 +29,37 @@ $(document).ready(function() {
             //because the box is not taken you can add a class to take it
             //============== adding class to the div
             $(this).addClass(playerTurn); // this is taking one object with the class square any time you click, before I tryed with .square instead of this and it added the class player 1 in all the divs
+            //============check winner with a function
+            checkWinner();
+            //==========to check the turn
             newTurn();
         }
     });
+    var checkWinner = function() {
+        if ( // checking if player 2 wins
+            ($("#one").hasClass("player1") && $("#two").hasClass("player1") && $("#three").hasClass("player1")) ||
+            ($("#four").hasClass("player1") && $("#five").hasClass("player1") && $("#six").hasClass("player1")) ||
+            ($("#seven").hasClass("player1") && $("#eight").hasClass("player1") && $("#nine").hasClass("player1")) ||
+            ($("#one").hasClass("player1") && $("#four").hasClass("player1") && $("#seven").hasClass("player1")) ||
+            ($("#two").hasClass("player1") && $("#five").hasClass("player1") && $("#eight").hasClass("player1")) ||
+            ($("#three").hasClass("player1") && $("#six").hasClass("player1") && $("#nine").hasClass("player1")) ||
+            ($("#one").hasClass("player1") && $("#five").hasClass("player1") && $("#nine").hasClass("player1")) ||
+            ($("#three").hasClass("player1") && $("#five").hasClass("player1") && $("#seven").hasClass("player1"))
+        ) {
+            console.log('player 1 is the best in the world');
+        } else if ( // checking if player 2 wins
+            ($("#one").hasClass("player2") && $("#two").hasClass("player2") && $("#three").hasClass("player2")) ||
+            ($("#four").hasClass("player2") && $("#five").hasClass("player2") && $("#six").hasClass("player2")) ||
+            ($("#seven").hasClass("player2") && $("#eight").hasClass("player2") && $("#nine").hasClass("player2")) ||
+            ($("#one").hasClass("player2") && $("#four").hasClass("player2") && $("#seven").hasClass("player2")) ||
+            ($("#two").hasClass("player2") && $("#five").hasClass("player2") && $("#eight").hasClass("player2")) ||
+            ($("#three").hasClass("player2") && $("#six").hasClass("player2") && $("#nine").hasClass("player2")) ||
+            ($("#one").hasClass("player2") && $("#five").hasClass("player2") && $("#nine").hasClass("player2")) ||
+            ($("#three").hasClass("player2") && $("#five").hasClass("player2") && $("#seven").hasClass("player2"))
+        ) {
+            console.log('player 2 is the best in the world');
+        }
 
-
-    // to do that we have to check if the box has any of the classes
+    };
 
 });
-
-
-
-
-
-// $('#two').on('click', function() {
-//     $("div #two").addClass("player1");
-// });
-// $('#three').on('click', function() {
-//     $('div #three').addClass('player1');
-// });
-
-
-
-//
-// $(".square").on("click", function() {
-//     //add class
-
-
-
-
-
-
-// change turn
-
-// Check whose turn it is
-
-
-// Let that player take a go
-
-
-// Check to see if the square they've tried to take is vacant?
-
-
-// CHeck to see if they've won
-
-// IF NOT - then change turns
-
-
-// use player1 or player2 instead x or o for class
-// check if there is any movement left
-//create a function checking for each div
-//check if there is any div with no class x or o
-
-// PLAYER 1: X
-// any time player one click on the div it will add a class call 'x'
-//check if player 1 can move there
-//check if there is any x or o class.
-//if there is any class ==> you cannot move there else id
-//$( "div where you click" ).addClass( "x" );
-
-// check if player one wins:
-//  checking that there are 3 in a row with the class x or diagonal or in a column
-// if there is not, it turns to player 2
-
-// PLAYER 2: O
-// any time player two click on the div it will add a class call '0'
-//$( "div where you click" ).addClass( 'o' );
-// check if player two wins:
-//  checking that there are 3 in a row with the class x or diagonal or in a column
-// if there is not, it turns to player 1
