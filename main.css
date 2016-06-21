@@ -1,0 +1,22 @@
+body {}
+.wrapper {
+    background-color: red;
+    margin: 0 auto;
+    width: 900px;
+    text-align: center;
+}
+.row {
+    display: block;
+}
+.square {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 5px solid orange;
+}
+.player1 {
+    background-color: blue;
+}
+.player2 {
+    background-color: yellow;
+}
