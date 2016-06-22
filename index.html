@@ -4,31 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Project 0, tic tac toe</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script src="js/main.js"></script>
 </head>
 
 <body>
+
     <div class="wrapper">
-        <section class="main">
-            <div class="row rowone">
-                <div class="oneone square" id="one"></div>
-                <div class="onetwo square" id="two"></div>
-                <div class="onethree square" id="three"></div>
+        <div class="setplayer1">
+            <h2>Player 1</h2>
+            <div class="nameChoice">
+                <p>Add your Name
+                    <input class="input-one" type="text" name="name" value="player 1">
+                </p>
             </div>
-            <div class="row rowtwo">
-                <div class="twoone square" id="four"></div>
-                <div class="twotwo square" id="five"></div>
-                <div class="twothree square" id="six"></div>
+            <div class="imgChoices">
+                <img class="image-selection-one" id="chris-one" src="img/chris.jpg" alt="">
+                <img class="image-selection-one" id="hat-one" src="img/hat.png" alt="">
+                <img class="image-selection-one" id="joel-one" src="img/joel.jpg" alt="">
+                <img class="image-selection-one" id="thimble-one" src="img/thimble.png" alt="">
             </div>
-            <div class="row rowthree">
-                <div class="threeone square" id="seven"></div>
-                <div class="threetwo square" id="eight"></div>
-                <div class="threethree square" id="nine"></div>
+            <!-- end of div imgChoices -->
+
+        </div>
+        <!-- end of div setplayer1 -->
+        <div class="setplayer2">
+            <h2>Player 2</h2>
+            <div class="nameChoice">
+                <p>Add your Name
+                    <input class="input-two" type="text" name="name" value="player 2">
+                </p>
             </div>
-        </section>
+            <div class="imgChoices">
+                <img class="image-selection-two" id="chris-two" src="img/chris.jpg" alt="">
+                <img class="image-selection-two" id="hat-two" src="img/hat.png" alt="">
+                <img class="image-selection-two" id="joel-two" src="img/joel.jpg" alt="">
+                <img class="image-selection-two" id="thimble-two" src="img/thimble.png" alt="">
+            </div>
+            <!-- end of div imgChoices -->
+
+        </div>
+        <!-- end of div setplayer2 -->
+        <!-- starting the game -->
+        <div class="game">
+            <h1>Tic Tac Toe</h1>
+            <section class="main">
+                <div class="winner"></div>
+                <div class="row rowone">
+                    <div class="oneone square" id="one"></div>
+                    <div class="onetwo square" id="two"></div>
+                    <div class="onethree square" id="three"></div>
+                </div>
+                <div class="row rowtwo">
+                    <div class="twoone square" id="four"></div>
+                    <div class="twotwo square" id="five"></div>
+                    <div class="twothree square" id="six"></div>
+                </div>
+                <div class="row rowthree">
+                    <div class="threeone square" id="seven"></div>
+                    <div class="threetwo square" id="eight"></div>
+                    <div class="threethree square" id="nine"></div>
+                </div>
+            </section>
+        </div>
+        <!-- end of div game -->
+        <div class="right">
+            <div class="rightUp">
+                <h2>Score</h2>
+                <p id="player1ScoreImg"></p>
+                <p id="player1Score">
+                    <span class="p1score"></span>
+                </p>
+                <p id="player2ScoreImg"></p>
+                <p id="player2Score">
+                    <span class="p2score"></span>
+                </p>
+                <p class="results" id="result"></p>
+            </div>
+            <!-- end of div rightUp -->
+            <button class="restartbutton" type="submit">Restart</button>
+
+        </div>
+        <!-- end of div right -->
     </div>
+    <!-- end of div wrapper -->
 </body>
 
 </html>
