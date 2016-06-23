@@ -8,7 +8,7 @@ $(document).ready(function() {
     // write a function to know when to use player 1 or player 2 to the event
     // so anytime player1 click the turn should be odd ans anytime player2 click turn shoud be even
     //================================
-    //+++++++++GLOBAL VARIABLES++++++++
+    //+++++++++GLOBAL VARIABLES+++++++
     //=================================
     var namePlayer1;
     var namePlayer2;
@@ -86,7 +86,7 @@ $(document).ready(function() {
         }
     });
     //================================
-    //+++++++++CHECK WINNER++++++++
+    //+++++++++CHECK WINNER+++++++
     //=================================
     var checkWinner = function() {
         if ( // checking if player 1 wins
