@@ -10,15 +10,22 @@ $(document).ready(function() {
     //================================
     //+++++++++Changing images++++++++
     //=================================
-
+    //================================
+    //+++++++++GLOBAL VARIABLES++++++++
+    //=================================
+    var namePlayer2;
+    var namePlayer1;
+    var turn = 0;
+    var gameOver = false;
+    var playerTurn = "player1";
     var playerImage = {
         player1: '',
         player2: '',
     };
 
-    var namePlayer1;
-
-    var namePlayer2;
+    //================================
+    //+++++++++SELECT PLAYER IMAGES++++++++
+    //=================================
     //player 1 selecting the img
     $(".image-selection-one").on("click", function() {
         var imgIndex = $(this).index(); //select the index of the image
@@ -48,9 +55,10 @@ $(document).ready(function() {
         console.log('testing image');
     });
 
-    var turn = 0;
-    var gameOver = false;
-    var playerTurn = "player1";
+
+    //================================
+    //+++++++++SELECT PLAYER TURN++++++++
+    //=================================
     var newTurn = function() { // to check who has to go
         if ((turn % 2 === 0) && (turn < 8)) {
             playerTurn = "player2"; //player2 goes
@@ -66,8 +74,10 @@ $(document).ready(function() {
         }
         turn += 1; // increments anytime the player clicks
     };
-    //=========checking if we can click on that box
 
+    //================================
+    //+++++++++SELECT PLAYER SQUARE++++++++
+    //=================================
     $('.square').on('click', function() { //it is to click in every object in that array
         //checking weather the class player 1 or player 2 is added to see if the box is already taken
         if (gameOver === false) { //to check if anyone won and stop the game
@@ -87,6 +97,10 @@ $(document).ready(function() {
             }
         }
     });
+
+    //================================
+    //+++++++++CHECK WINNER++++++++
+    //=================================
     var checkWinner = function() {
         if ( // checking if player 2 wins
             ($("#one").hasClass("player1") && $("#two").hasClass("player1") && $("#three").hasClass("player1")) ||
@@ -127,6 +141,9 @@ $(document).ready(function() {
 
     };
 
+    //================================
+    //+++++++++RESTART THE GAME++++++++
+    //=================================
     // to restart the game when is finished
     var restart = function() {
         turn = 0;
@@ -140,7 +157,7 @@ $(document).ready(function() {
         $("#result").empty();
 
     };
-    // creating a function to restart
+    // creating a button to restart
     $(".restartbutton").on("click", function() {
         console.log('auwhef');
         restart();
