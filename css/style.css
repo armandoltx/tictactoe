@@ -35,6 +35,18 @@ body {
     top: 104px;
     left: 190px;
     z-index: 2; }
+    .wrapper .setplayer1 .GameChoice ul {
+      list-style-type: none; }
+      .wrapper .setplayer1 .GameChoice ul li {
+        display: inline-block;
+        padding: 10px 30px 0; }
+        .wrapper .setplayer1 .GameChoice ul li a {
+          text-decoration: none;
+          font-size: 40px;
+          line-height: 3;
+          color: white; }
+          .wrapper .setplayer1 .GameChoice ul li a:hover {
+            color: #FF9800; }
     .wrapper .setplayer1 h2 {
       padding: 25px;
       color: white;
@@ -131,6 +143,7 @@ body {
       font-size: 20px;
       line-height: 2; }
     .wrapper .right .restartbutton {
+      text-decoration: none;
       background-color: #8C2020;
       padding: 20px;
       color: white;

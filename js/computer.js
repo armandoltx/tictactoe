@@ -35,37 +35,46 @@ $(document).ready(function() {
         console.log('testing image');
     });
     //player 2 selecting the img
-    $(".image-selection-two").on("click", function() {
-        $("#player2Score").val(".input-one");
-        //adding the image to the player in the score area
-        namePlayer2 = $(".input-two").val();
-        var $img = $('<img>').attr('src', $(this).attr('src'));
-        $('#player2Score').text(namePlayer2);
-        $('#player2ScoreImg').append($img);
-        player = 'player2';
-        playerImage[player] = $(this).attr('src');
-        $('.setplayer2').addClass('invisible');
-        console.log('testing image');
-    });
-
+    // $(".image-selection-two").on("click", function() {
+    //     $("#player2Score").val(".input-one");
+    //     //adding the image to the player in the score area
+    //     namePlayer2 = $(".input-two").val();
+    //     var $img = $('<img>').attr('src', $(this).attr('src'));
+    //     $('#player2Score').text(namePlayer2);
+    //     $('#player2ScoreImg').append($img);
+    //     player = 'player2';
+    //     playerImage[player] = $(this).attr('src');
+    //     $('.setplayer2').addClass('invisible');
+    //     console.log('testing image');
+    // });
+    //==============================
+    // Computer player turn:
+    //getting the ids for the computer
+    var idNumbers = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    var computerPlayer = function() {
+        var computerTurnId = (Math.floor(Math.random() * 8) + 1);
+        var computerTurn = idNumbers[computerTurnId];
+        return computerTurn;
+    };
+    console.log(computerPlayer());
     var turn = 0;
     var gameOver = false;
     var playerTurn = "player1";
-    var newTurn = function() { // to check who has to go
-        if ((turn % 2 === 0) && (turn < 8)) {
-            playerTurn = "player2"; //player2 goes
-        } else if ((turn % 2 !== 0) && (turn < 8)) {
-            playerTurn = "player1"; //player1 goes
-
-        } else {
-            $("#result").text("both of you have no idea how to play!");
-
-            console.log('both of you have no idea how to play');
-            // restart(); NEED TO ADD A BUTTON OR SOEMTHING TO CALL RESTART FROM
-
-        }
-        turn += 1; // increments anytime the player clicks
-    };
+    // var newTurn = function() { // to check who has to go
+    //     if ((turn % 2 === 0) && (turn < 8)) {
+    //         playerTurn = "player2"; //player2 goes
+    //     } else if ((turn % 2 !== 0) && (turn < 8)) {
+    //         playerTurn = "player1"; //player1 goes
+    //
+    //     } else {
+    //         $("#result").text("both of you have no idea how to play!");
+    //
+    //         console.log('both of you have no idea how to play');
+    //         // restart(); NEED TO ADD A BUTTON OR SOEMTHING TO CALL RESTART FROM
+    //
+    //     }
+    //     turn += 1; // increments anytime the player clicks
+    // };
     //=========checking if we can click on that box
 
     $('.square').on('click', function() { //it is to click in every object in that array
@@ -82,13 +91,28 @@ $(document).ready(function() {
                 // this is taking one object with the class square any time you click, before I tryed with .square instead of this and it added the class player 1 in all the divs
                 //============check winner with a function
                 checkWinner();
-                //==========to check the turn
-                newTurn();
+                //computer goes++++++++++++++
+                //get a ranadom square, check if the divs have player1 or player2 classthat it i not taken and take it for the computer for loop to get any random id not taken
+                //
+                var $computerSquare = $('#' + computerPlayer()); // gettings the ids
+                while (($computerSquare.hasClass('player1')) || ($computerSquare.hasClass('player2'))) {
+                    console.log('testing', $computerSquare);
+                    $computerSquare = $('#' + computerPlayer());
+                    var $empty = $('.square:not(.player1, .player2)'); // checking empty squares
+                    if ($empty.length === 0) { // first the length is 9
+                        console.log('no empty squares');
+                        $("#result").text("both of you have no idea how to play!");
+                        break;
+                    }
+                }
+                $computerSquare.addClass('player2');
+                $computerSquare.css("background-image", "url('img/robot.jpg')");
+
             }
         }
     });
     var checkWinner = function() {
-        if ( // checking if player 2 wins
+        if ( // checking if player 1 wins
             ($("#one").hasClass("player1") && $("#two").hasClass("player1") && $("#three").hasClass("player1")) ||
             ($("#four").hasClass("player1") && $("#five").hasClass("player1") && $("#six").hasClass("player1")) ||
             ($("#seven").hasClass("player1") && $("#eight").hasClass("player1") && $("#nine").hasClass("player1")) ||

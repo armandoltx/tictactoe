@@ -24,6 +24,7 @@ body {
         line-height: 2;
         font-size: 35px;
       }
+
       .setplayer1{
         position: absolute;
         width: 910px;
@@ -32,6 +33,24 @@ body {
         top: 104px;
         left: 190px;
         z-index: 2;
+        .GameChoice{
+          ul{
+            list-style-type: none;
+            li{
+              display: inline-block;
+              padding: 10px 30px 0;
+              a{
+                text-decoration: none;
+                font-size: 40px;
+                line-height: 3;
+                color: white;
+                &:hover{
+                  color:$orange;
+                }
+              }
+            }
+          }
+        }
           h2 {
             padding: 25px;
             color: white;
@@ -141,6 +160,7 @@ body {
         line-height: 2;
       }
       .restartbutton{
+        text-decoration: none;
         background-color: $red;
         padding: 20px;
         color: white;
