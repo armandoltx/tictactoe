@@ -81,6 +81,7 @@ $(document).ready(function() {
                 }
                 $computerSquare.addClass('player2');
                 $computerSquare.css("background-image", "url('img/robot.jpg')");
+                checkWinner();
 
             }
         }
@@ -89,6 +90,9 @@ $(document).ready(function() {
     //+++++++++CHECK WINNER+++++++
     //=================================
     var checkWinner = function() {
+        if (gameOver) { // if the game is over do not check the code
+            return;
+        }
         if ( // checking if player 1 wins
             ($("#one").hasClass("player1") && $("#two").hasClass("player1") && $("#three").hasClass("player1")) ||
             ($("#four").hasClass("player1") && $("#five").hasClass("player1") && $("#six").hasClass("player1")) ||
@@ -118,7 +122,7 @@ $(document).ready(function() {
             ($("#three").hasClass("player2") && $("#five").hasClass("player2") && $("#seven").hasClass("player2"))
         ) {
             console.log('Chris 2 is the best in the world');
-            $("#result").text(namePlayer2 + ", you are the best in the world!");
+            $("#result").text(" Computer, you are the best in the world!");
             $("#player2Score").append('<img src="img/star.png" alt="">');
             $(".winner").append('<img src="https://media.giphy.com/media/11tsxnToGxblvO/giphy.gif" alt="">');
 
