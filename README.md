@@ -22,12 +22,14 @@ After having the logic of the program working, I worked on the avatars. The game
 
 Then I created more code to create the posibility of playing against the computer, by modifing the previous code to let the computer be the 2nd player. So the program itself checks the empty boxex and use one of them.
 
-##Estructure
+## Estructure
 
 1. Choose Game, between 2 players or 1 player vs computer.
-2 .Choose Avatar and Nickname.
+2. Choose Avatar and Nickname.
 3. Start Playing.
+
 ## Frameworks and Libraries
+
 - HTML.
 - CSS.
 - JavaScript.

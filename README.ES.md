@@ -23,7 +23,7 @@ Despues de haber conseguido implantar la logica con codigo, el segundo paso fue 
 Luego cree otro codigo para que se pudea jugar contra la maquina.
 
 
-##Estructura
+## Estructura
 
 1. Elige el tipo de juego, jugar contra la maquina o contra otro jugador.
 2 .Escoger tu  Avatar and Nickname.
